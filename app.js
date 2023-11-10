@@ -1,38 +1,18 @@
-//Формула вычисления расстояния между двумя точками A(xa, ya) и B(xb, yb) на плоскости:AB = √(xb - xa)2 + (yb - ya)2 
+function convertCurence(amount, curenc, targetCurenc = '') {
 
-function calculateLong(xa, ya, xb, yb) {
-  let a = xb - xa;
-  let b = yb - ya;
-  return Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));
-}
-let result = calculateLong(0, 1, 2, -2);
-console.log(result);
+  const objExchangeRate = {
+    usd: 92.18,
+    evro: 98.41,
+    rub: 1
+  };
 
-//Задача переводчик
-
-let language = 'ru';
-
-function translate(a) {
-  switch (a) {
-    case 'en':
-      console.log('good afternoon');
-      break;
-    case 'ru':
-      console.log('добрый день');
-      break;
-    case 'de':
-      console.log('gutten tag');
-      break;
+  if (!objExchangeRate[curenc] || !objExchangeRate[targetCurenc]) {
+    return null;
   }
+
+  return (objExchangeRate[curenc] * amount) / objExchangeRate[targetCurenc];
 }
 
-translate(language);
+console.log(convertCurence(77, 'usd', 'rub'))
 
-//задача проверка
 
-let hasLicence = true;
-let age = 17;
-let isDrink = false;
-
-let isDrive = hasLicence && age >= 18 && !isDrink;
-console.log(isDrive);
