@@ -27,51 +27,6 @@ function check(encrypted, passwords) {
 console.log(crypto(str));
 console.log(check('swordspas', str));
 
-const operations = [1000, -700, 300, -500, 10000];
-
-function calculateSum(operations) {
-  let res = 0;
-  for (let el of operations) {
-    res += el;
-  }
-  return res;
-}
-
-function isBalans(operations) {
-  let res = 0;
-  for (let el of operations) {
-    if (res < 0) {
-      return false;
-    }
-    res += el;
-  }
-  return true;
-}
-
-function calcMedium(operations) {
-  let positive = 0;
-  let negative = 0;
-  let positiveIndex = 0;
-  let negativeIndex = 0;
-  for (let el of operations) {
-    if (el > 0) {
-      positive += el;
-      positiveIndex++;
-    } else {
-      negative += el;
-      negativeIndex++;
-    }
-  }
-  let positiveSum = positive / positiveIndex;
-  let negativeSum = negative / negativeIndex;
-  return (`${positiveSum} ,${negativeSum}`);
-}
-
-console.log(calculateSum(operations));
-
-console.log(isBalans(operations));
-console.log(calcMedium(operations));
-
 //task-3 
 const arr = [1, 40, -5, 10, 0];
 
