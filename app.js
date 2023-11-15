@@ -28,31 +28,34 @@ console.log(crypto(str));
 console.log(check('swordspas', str));
 
 //task-3 
-const arr = [1, 40, -5, 10, 0];
+const arr = [1, 50, -5, 10, 0, 10];
 
 function sortingAray(arr, param = 'max') {
-  let newArr = [];
   if (param == 'min') {
-    for (let el of arr) {
-      for (let index in arr) {
-        if (arr[index] < el) {
-          let el = arr.splice(index, 1);//не понимаю как вынести эту строку чтобы не дублировался код, тут задействован индекс с цикла 
-          newArr.push(el.join(' '));
+    for (let n = 0; n < arr.length - n; n++) {
+      for (let i = 0; i < arr.length - 1; i++) {
+        if (arr[i] > arr[i + 1]) {
+          swapPlaces(arr, i);
         }
       }
     }
   } else {
-    for (let el of arr) {
-      for (let index in arr) {
-        if (arr[index] > el) {
-          let el = arr.splice(index, 1);
-          newArr.push(el.join(' '));
+    for (let n = 0; n < arr.length - n; n++) {
+      for (let i = 0; i < arr.length - 1; i++) {
+        if (arr[i] < arr[i + 1]) {
+          swapPlaces(arr, i);
         }
       }
     }
   }
 
-  return newArr;
+  return arr;
 }
 
-console.log(sortingAray(arr, 'max'));
+function swapPlaces(arr, index) {
+  const baff = arr[index];
+  arr[index] = arr[index + 1];
+  arr[index + 1] = baff;
+}
+
+console.log(sortingAray(arr, 'min'));
